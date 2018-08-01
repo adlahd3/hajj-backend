@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  cr: MyString
+  amount: 1.5
 
 two:
-  name: MyString
-  cr: MyString
+  amount: 1.5

@@ -10,18 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801150252) do
+ActiveRecord::Schema.define(version: 20180801151521) do
 
-  create_table "retailers", force: :cascade do |t|
-    t.string "name"
-    t.string "cr_number"
+  create_table "accounts", force: :cascade do |t|
+    t.string "iban_number"
+    t.string "owner_name"
+    t.string "owner_id"
+    t.string "owner_id_type"
+    t.string "nationality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.float "amount", default: 0.0, null: false
+    t.integer "debit_account_id"
+    t.integer "credit_account_id"
+    t.boolean "is_paid", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_account_id"], name: "index_transactions_on_credit_account_id"
+    t.index ["debit_account_id"], name: "index_transactions_on_debit_account_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "border_number"
-    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "type", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
