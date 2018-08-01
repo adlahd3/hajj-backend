@@ -46,6 +46,6 @@ class AccountsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def account_params
-      params.permit(:iban, :owner_name, :owner_id, :owner_id_type, :nationality)
+      params.permit(:iban, :owner_name, :owner_id, :nationality)
     end
 end
