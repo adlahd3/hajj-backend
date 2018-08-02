@@ -5,7 +5,8 @@ class PaymentsController < ApplicationController
     # get the credit account ( To )
     # make the settlement
     # return a message. 
-    puts params["body"]
+    textbody = params[:body][:Body]
+    puts textbody
   end
 
   def payment_parmas
