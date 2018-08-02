@@ -10,6 +10,6 @@ class PaymentsController < ApplicationController
   end
 
   def payment_parmas
-    params.permit(:from, :body)
+    params.permit(:from, :Body)
   end
 end
