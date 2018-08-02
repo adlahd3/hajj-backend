@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
     # get the credit account ( To )
     # make the settlement
     # return a message. 
-    textbody = params[:body][:Body]
+    textbody = params[:Body]
     puts textbody
   end
 
