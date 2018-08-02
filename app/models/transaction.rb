@@ -4,10 +4,10 @@ class Transaction < ApplicationRecord
   has_many :accounts
 
   def as_json(options={})
-  super(:only => [:id,:amount],
+  super(:only => [:id,:amount, :created_at],
         :include => {
-          :debit_account => {:only => [:owner_name]},
-          :credit_account => {:only => [:owner_name]},
+          :debit_account => {:only => [:id, :owner_name]},
+          :credit_account => {:only => [:id, :owner_name]},
         })
   end
 end
