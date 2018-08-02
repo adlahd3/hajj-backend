@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
     # make the settlement
     # return a message. 
     textbody = params[:Body]
-    puts textbody
+    render :json => textbody
   end
 
   def payment_parmas
