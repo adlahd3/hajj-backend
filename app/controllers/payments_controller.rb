@@ -5,11 +5,11 @@ class PaymentsController < ApplicationController
     # get the credit account ( To )
     # make the settlement
     # return a message. 
-    textbody = params[:Body]
-    puts "Adel Alahmed"
+    @textbody = params[:Body]
+    print @textbody
   end
 
   def payment_parmas
-    params.permit(:from, :Body)
+    params.permit(:From, :Body)
   end
 end
