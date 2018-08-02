@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180801155119) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string "iban_number"
     t.string "owner_name"
@@ -20,14 +23,14 @@ ActiveRecord::Schema.define(version: 20180801155119) do
     t.string "nationality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
     t.float "amount", default: 0.0, null: false
-    t.integer "debit_account_id"
-    t.integer "credit_account_id"
+    t.bigint "debit_account_id"
+    t.bigint "credit_account_id"
     t.boolean "is_paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,4 +46,5 @@ ActiveRecord::Schema.define(version: 20180801155119) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "accounts", "users"
 end
