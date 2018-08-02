@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order(id: :desc)
     render json: @transactions
   end
 
