@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'payments/deduct'
+
   resources :transactions
   resources :accounts
   resources :users
